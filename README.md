@@ -6,6 +6,9 @@ Finding the right repositories, issues, and contribution opportunities can be ov
 
 Inspired by the North Star ⭐, Polaris helps developers navigate the open-source universe.
 
+## Live Demo 
+https://github-contribution-radar.vercel.app
+
 ## What it does
 
 - Search GitHub issues filtered by language, label, and activity
