@@ -27,7 +27,9 @@ export default function App() {
       <Route path="/" element={<Landing />} />
       <Route path="/auth/callback" element={<AuthCallback />} />
       <Route path="/onboarding" element={<ProtectedRoute><Onboarding /></ProtectedRoute>} />
-
+      
+      <Route path="/auth/callback" element={<AuthCallback />} />
+      
       <Route element={<ProtectedRoute><Layout /></ProtectedRoute>}>
         <Route path="/discovery" element={<Discovery />} />
         <Route path="/issue/:owner/:repo/:issueNumber" element={<IssueDetail />} />
