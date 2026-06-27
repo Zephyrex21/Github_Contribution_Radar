@@ -1,6 +1,8 @@
-# OSS Radar
+# Polaris — GitHub Contribution Intelligence Platform
 
-A personalized open-source contribution discovery and tracking platform.
+**Polaris** is a GitHub contribution intelligence platform designed to help developers discover meaningful open-source opportunities and understand their GitHub activity.
+
+Finding the right repositories, issues, and contribution opportunities can be overwhelming
 
 ## What it does
 
