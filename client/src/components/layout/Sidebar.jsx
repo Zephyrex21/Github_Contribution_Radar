@@ -27,9 +27,10 @@ export default function Sidebar({ onCommandPalette }) {
         transition: 'background 0.25s ease, border-color 0.25s ease',
       }}
     >
-      {/* Wordmark */}
+      {/* Wordmark — clicking it goes "home" (Dashboard), standard SaaS convention,
+          consistent with RootRoute now treating Dashboard as the logged-in home */}
       <div className="px-4 pt-5 pb-3">
-        <NavLink to="/discovery" className="block">
+        <NavLink to="/dashboard" className="block">
           <UpstreamWordmark size={30} />
         </NavLink>
       </div>

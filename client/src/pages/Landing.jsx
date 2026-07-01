@@ -1,10 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   Github, Telescope, BookmarkCheck, BarChart2,
   Zap, GitMerge, Search, Sun, Moon, ArrowRight,
 } from 'lucide-react';
-import { useAuth }  from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import { UpstreamWordmark } from '../components/ui/Logo';
 
@@ -193,15 +191,16 @@ function AnimatedPreview() {
   );
 }
 
-/* ─── Main landing page ─── */
+/* ─── Main landing page ───
+   Bug fix: this component used to check isAuthenticated itself and redirect
+   via useEffect — meaning it always fully mounted (animations, timers, the
+   AnimatedPreview ticker) for every visitor, including already-logged-in
+   users, before bouncing them away a beat later. That auth check now lives
+   in App.jsx's RootRoute, which runs BEFORE this component ever mounts, so
+   Landing only renders for actual guests and no longer needs useAuth/
+   useNavigate at all. */
 export default function Landing() {
-  const { isAuthenticated, user } = useAuth();
-  const { toggle, isDark }        = useTheme();
-  const navigate                  = useNavigate();
-
-  useEffect(() => {
-    if (isAuthenticated) navigate(user?.onboardingComplete ? '/discovery' : '/onboarding', { replace: true });
-  }, [isAuthenticated]);
+  const { toggle, isDark } = useTheme();
 
   const textPrimary   = isDark ? '#ffffff'               : '#1d1d1f';
   const textSecondary = isDark ? 'rgba(255,255,255,0.55)': 'rgba(0,0,0,0.55)';
